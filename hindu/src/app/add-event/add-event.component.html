@@ -1,0 +1,225 @@
+<div class="container py-4 header-m">
+    <div class="form-card">
+        <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()" class="p-5">
+            <div class="row mt-5">
+                <h3 class="section-header-title text-center">Add a Event</h3>
+            </div>
+
+            <h3 class="organization-form-heading">Event Details</h3>
+            <hr />
+
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="name">Event Name *</label>
+                        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter the Event Name" [class.is-invalid]="organizationForm.get('name')?.touched && organizationForm.get('name')?.invalid">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="organizer_name">Event Organizer Name *</label>
+                        <input type="text" class="form-control" id="organizer_name" formControlName="organizer_name" placeholder="Enter the Organizer name" [class.is-invalid]="organizationForm.get('organizer_name')?.touched && organizationForm.get('organizer_name')?.invalid">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="contact_details">Contact Details *</label>
+                        <input type="text" class="form-control" id="contact_details" formControlName="contact_details" placeholder="Enter the Contact Details" [class.is-invalid]="organizationForm.get('contact_details')?.touched && organizationForm.get('contact_details')?.invalid">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="live_stream_link">Live Stream Link</label>
+                        <input type="url" class="form-control" id="live_stream_link" formControlName="live_stream_link" placeholder="Provide The Correct Link" [class.is-invalid]="organizationForm.get('live_stream_link')?.touched && organizationForm.get('live_stream_link')?.invalid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="location">Event Location</label>
+                        <textarea class="form-control" id="location" formControlName="location" placeholder="Enter the Location" rows="4" [class.is-invalid]="organizationForm.get('location')?.touched && organizationForm.get('location')?.invalid"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="event_details">Event Details</label>
+                      <textarea class="form-control" id="event_details" formControlName="event_details" placeholder="Detailed information about the organization" rows="4" [class.is-invalid]="organizationForm.get('event_details')?.touched && organizationForm.get('event_details')?.invalid"></textarea>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="datetime-local" 
+                               class="form-control" 
+                               id="start_date" 
+                               formControlName="start_date" 
+                               [class.is-invalid]="organizationForm.get('start_date')?.touched && organizationForm.get('start_date')?.invalid">
+                        <div *ngIf="organizationForm.get('start_date')?.invalid && organizationForm.get('start_date')?.touched" class="invalid-feedback">
+                            Start Date is required.
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="end_date">End Date</label>
+                        <input type="datetime-local" 
+                               class="form-control" 
+                               id="end_date" 
+                               formControlName="end_date" 
+                               [class.is-invalid]="organizationForm.get('end_date')?.touched && organizationForm.get('end_date')?.invalid">
+                        <div *ngIf="organizationForm.get('end_date')?.invalid && organizationForm.get('end_date')?.touched" class="invalid-feedback">
+                            End Date is required.
+                        </div>
+                    </div>
+                </div>
+
+            
+                <!-- <div>
+                    <label for="start_date">Start Date:</label>
+                    <input type="datetime-local" id="start_date" formControlName="start_date" />
+                  </div>
+                
+                  <div>
+                    <label for="end_date">End Date:</label>
+                    <input type="datetime-local" id="end_date" formControlName="end_date" />
+                  </div> -->
+                <!-- <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="start_time">Start Time</label>
+                        <input type="time" class="form-control" id="start_time" formControlName="start_time" [class.is-invalid]="organizationForm.get('start_time')?.touched && organizationForm.get('start_time')?.invalid">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="end_time">End Time</label>
+                        <input type="time" class="form-control" id="end_time" formControlName="end_time" [class.is-invalid]="organizationForm.get('end_time')?.touched && organizationForm.get('end_time')?.invalid">
+                    </div>
+                </div> -->
+
+
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="category" class="form-label">Category</label>
+                      <select class="form-control" id="category" formControlName="category"
+                              (change)="onCategoryChange($event)"
+                              [class.is-invalid]="organizationForm.get('category')?.touched && organizationForm.get('category')?.invalid">
+                        <option value="" disabled selected>Select a category</option>
+                        <option *ngFor="let option of combinedCategoryOptions" [value]="option.value">{{ option.label }}</option>
+                      </select>
+                    </div>         
+                  </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="continent">Continent *</label>
+                        <select class="form-control" id="continent" formControlName="continent" [class.is-invalid]="organizationForm.get('continent')?.touched && organizationForm.get('continent')?.invalid">
+                            <option *ngFor="let option of ContinentOptions" [value]="option.value">{{ option.label }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="country">Country *</label>
+                        <select class="form-control" id="country" formControlName="country" [class.is-invalid]="organizationForm.get('country')?.touched && organizationForm.get('country')?.invalid">
+                            <option *ngFor="let option of CountryOptions" [value]="option.value">{{ option.label }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <select class="form-control" id="state" formControlName="state" [class.is-invalid]="organizationForm.get('state')?.touched && organizationForm.get('state')?.invalid">
+                            <option *ngFor="let option of StateOptions" [value]="option.value">{{ option.label }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="object_id">District *</label>
+                        <select class="form-control" id="object_id" formControlName="object_id" [class.is-invalid]="organizationForm.get('object_id')?.touched && organizationForm.get('object_id')?.invalid">
+                            <option *ngFor="let option of DistrictOptions" [value]="option.value">{{ option.label }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-control" id="category" formControlName="category" [class.is-invalid]="organizationForm.get('category')?.touched && organizationForm.get('category')?.invalid">
+                            <option value="" disabled selected>Select a category</option>
+                            <option *ngFor="let option of CategoryOptions" [value]="option.value">{{ option.label }}</option>
+                        </select>
+                    </div>                  
+                </div> -->
+
+                <!-- <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="organization" class="form-label">Select organization</label>(Before post the event form, there is no organization available to fill in the organization form.)
+                        <select class="form-control" id="organization" formControlName="organization" [class.is-invalid]="organizationForm.get('organization')?.touched && organizationForm.get('organization')?.invalid">
+                            <option value="" disabled selected>Select an organization</option>
+                            <option *ngFor="let option of organizationsyOptions" [value]="option.value">{{ option.label }}</option>
+                        </select>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-2">
+                    <label>Brochure *</label>
+                    <nz-upload
+                      nzListType="picture-card"
+                      [(nzFileList)]="brochureFileList"
+                      [nzShowButton]="brochureFileList.length < 1"
+                      (nzChange)="handleBrochureFileChange($event)"
+                      [nzAccept]="'image/*'">
+                      <div>
+                        <i nz-icon nzType="plus"></i>
+                        <div>Upload Brochure</div>
+                      </div>
+                    </nz-upload>
+                  </div>
+                <div *ngIf="eventimages.length < 5" class="col-md-10">
+                  <label>Event Images *</label>( Please Upload 5 Images)
+                  <nz-upload
+                    nzListType="picture-card"
+                    [(nzFileList)]="bannerFileList"
+                    [nzMultiple]="true"
+                    [nzShowButton]="bannerFileList.length < 5"
+                    (nzChange)="handleBannerFileChange($event)"
+                    [nzAccept]="'image/*'"
+                    >
+                    <div>
+                      <i nz-icon nzType="plus"></i>
+                      Add Event Images
+                    </div>
+                  </nz-upload>
+                </div>
+              
+
+              </div>
+              
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

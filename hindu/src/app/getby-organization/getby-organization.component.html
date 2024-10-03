@@ -1,0 +1,169 @@
+
+
+
+
+
+<!-- <div class="container mt-5 mb-5">
+    <div class="row justify-content-center " style="margin-top: 100px;">
+        <div class="col-12 col-md-10" *ngIf="organization">
+            <div class="row align-items-center mb-5">
+                <div class="col-4 text-end">
+                    <img 
+                    [src]="organization.org_logo && organization.org_logo !== 'data not found' ? 'data:image/jpeg;base64,' + organization.org_logo : '../../assets/images/noImageDataImage.jpg'" 
+                    class="img-fluid rounded-circle" 
+                    style="width: 100px; height: 100px; object-fit: fill;" alt="Organization Logo">
+                </div>
+                <div class="col-8">
+                    <h6 class="text-start" style="color: orange;">{{ organization.organization_name }}</h6>
+                </div>
+
+            </div>
+            
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-start mb-4 mb-md-0">
+                    <div class="image-container">
+                        <img 
+                            [src]="organization.org_images && organization.org_images !== 'data not found' ? 'data:image/jpeg;base64,' + organization.org_images : '../../assets/images/noImageDataImage.jpg'" 
+                            class="img-fluid rounded" 
+                            style="height: auto; max-height: 300px; object-fit: cover;" alt="Organization Image">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="details mt-4 mt-md-0">
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Name:</b></span> {{ organization.organization_name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Chairman:</b></span> {{ organization.chairman }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Registration Id:</b></span> {{ organization.reg_id }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Established By:</b></span> {{ organization.est_by }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Location:</b></span> {{ organization.location }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Organization Members:</b></span> {{ organization.organization_members }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Website:</b></span> 
+                            <a [href]="organization.web_url" target="_blank">{{ organization.web_url }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Mission:</b></span> {{ organization.mission }}
+            </div>
+
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Organization Details:</b></span> {{ organization.org_detail }}
+            </div>
+
+        </div>
+
+        <div *ngIf="!organization" class="col-12">
+            <p class="text-center">No organization details available.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="col-md-3 col-lg-2 mt-5 d-none d-md-block">
+    <div class="image-container"  style="position: relative;">
+      <img src="../../assets/images/saynotoplastic.webp" 
+           class="img-fluid" 
+           style="height: 600px; width: 100%; object-fit: fill;" 
+           alt="Ad Space" 
+           id="banner-image">
+    </div>
+  </div> -->
+
+
+
+
+
+  <div class="container mb-5" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-9">
+            <div class="row align-items-center mb-5">
+                <div class="col-4 text-end">
+                    <img 
+                    [src]="organization.org_logo && organization.org_logo !== 'data not found' ? 'data:image/jpeg;base64,' + organization.org_logo : '../../assets/images/noImageDataImage.jpg'" 
+                    class="img-fluid rounded-circle" 
+                    style="width: 100px; height: 100px; object-fit: fill;" alt="Organization Logo">
+                </div>
+                <div class="col-8">
+                    <h6 class="text-start" style="color: orange;">{{ organization.organization_name }}</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-start mb-4 mb-md-0">
+                    <div class="image-container">
+                        <img 
+                            [src]="organization.org_images && organization.org_images !== 'data not found' ? 'data:image/jpeg;base64,' + organization.org_images : '../../assets/images/noImageDataImage.jpg'" 
+                            class="img-fluid rounded" 
+                            style="height: auto; max-height: 300px; object-fit: cover;" alt="Organization Image">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="details mt-4 mt-md-0">
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Name:</b></span> {{ organization.organization_name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Chairman:</b></span> {{ organization.chairman }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Registration Id:</b></span> {{ organization.reg_id }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Established By:</b></span> {{ organization.est_by }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Location:</b></span> {{ organization.location }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Organization Members:</b></span> {{ organization.organization_members }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Website:</b></span> 
+                            <a [href]="organization.web_url" target="_blank">{{ organization.web_url }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Mission:</b></span> {{ organization.mission }}
+            </div>
+
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Organization Details:</b></span> {{ organization.org_detail }}
+            </div>
+        </div>
+
+        <div class="col-md-3 col-lg-2 mt-5 d-none d-md-block">
+            <div class="image-container" style="position: relative;">
+                <img src="../../assets/images/saynotoplastic.webp" 
+                     class="img-fluid" 
+                     style="height: 600px; width: 100%; object-fit: fill;" 
+                     alt="Ad Space" id="banner-image">
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!organization" class="col-12">
+        <p class="text-center">No organization details available.</p>
+    </div>
+</div>

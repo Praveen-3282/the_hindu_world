@@ -1,0 +1,240 @@
+<!-- <div class="container mt-5 mb-5">
+    <div class="row justify-content-center" style="margin-top: 100px;">
+        <div class="col-12 col-md-10" *ngIf="organization">
+            <h4 class="mb-5 text-center">{{ organization.name }}</h4>
+            <div class="row">
+
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-start">
+                    <div class="image-container mb-5">
+                        <img 
+                            [src]="organization.event_images && organization.event_images !== 'data not found' 
+                                    ? 'data:image/jpeg;base64,' + organization.event_images 
+                                    : '../../assets/images/noImageDataImage.jpg'" 
+                            style="height: 300px; width: 100%; object-fit: cover;" 
+                            class="img-fluid rounded" 
+                            alt="Organization Image">
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="details" style="margin-top: 0px;">
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Name:</b></span> {{ organization.name }}
+                        </div>
+
+
+
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Organizer Name:</b></span> {{ organization.organizer_name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Start Date:</b></span> {{ organization.start_date }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>End Date:</b></span> {{ organization.end_date }}
+                        </div>
+
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Location:</b></span> {{ organization.location }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Relative Time:</b></span> {{ organization.relative_time }}
+                        </div>
+
+
+
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Live stream link:</b></span>
+                            <a href="{{ organization.live_stream_link }}" target="_blank">{{ organization.live_stream_link }}</a>
+                        </div>
+                        
+            
+
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Contact Details:</b></span> {{ organization.contact_details }}
+                        </div>
+                      
+        
+                    </div>
+                    
+                </div>
+                <hr>
+                  
+                <div class="detail mb-3">
+                    <span class="detail-label"><b>Location:</b></span> {{ organization.location }}
+                </div>
+
+                <div class="detail mb-3">
+                    <span class="detail-label"><b>Event Details:</b></span> {{ organization.event_details }}
+                </div>
+
+                <span class="detail-label"><b>Brochure:</b></span>
+                <div class="image-container mb-5">
+                    <img [src]="organization.brochure ? 'data:image/jpeg;base64,' + organization.brochure : '../../assets/images/noImageDataImage.jpg'" 
+                         alt="Brochure Image"
+                         class="img-fluid rounded"
+                         style="height: 300px; width: 100%; object-fit: fill;">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!organization" class="col-12">
+            <p class="text-center">No organization details available.</p>
+        </div>
+    </div>
+</div>
+ -->
+
+
+
+<!-- 
+ <div class="container mt-5 mb-5">
+    <div class="row justify-content-center" style="margin-top: 100px;">
+        <div class="col-12 col-md-10" *ngIf="organization">
+            <h4 class="mb-5 text-center">{{ organization.name }}</h4>
+            
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-start mb-5">
+                    <div class="image-container">
+                        <img 
+                            [src]="organization.event_images && organization.event_images !== 'data not found' 
+                                    ? 'data:image/jpeg;base64,' + organization.event_images 
+                                    : '../../assets/images/noImageDataImage.jpg'" 
+                            class="img-fluid rounded" 
+                            alt="Organization Image"
+                            style="height: 300px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6">
+                    <div class="details">
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Name:</b></span> {{ organization.name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Organizer Name:</b></span> {{ organization.organizer_name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Start Date:</b></span> {{ organization.start_date }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>End Date:</b></span> {{ organization.end_date }}
+                        </div>
+                   
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Relative Time:</b></span> {{ organization.relative_time }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Live stream link:</b></span>
+                            <a href="{{ organization.live_stream_link }}" target="_blank">{{ organization.live_stream_link }}</a>
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Contact Details:</b></span> {{ organization.contact_details }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Location:</b></span> {{ organization.location }}
+            </div>
+            
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Event Details:</b></span> {{ organization.event_details }}
+            </div>
+
+            <span class="detail-label"><b>Brochure:</b></span>
+            <div class="image-container mb-5">
+                <img 
+                    [src]="organization.brochure ? 'data:image/jpeg;base64,' + organization.brochure : '../../assets/images/noImageDataImage.jpg'" 
+                    alt="Brochure Image"
+                    class="img-fluid rounded"
+                    style="height: 300px; width: 50%; object-fit: fill;">
+            </div>
+        </div>
+
+        <div *ngIf="!organization" class="col-12">
+            <p class="text-center">No organization details available.</p>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center" style="margin-top: 100px;">    
+        <div class="col-12 col-md-9" *ngIf="organization">
+            <h4 class="mb-5 text-center">{{ organization.name }}</h4>         
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-start mb-5">
+                    <div class="image-container">
+                        <img 
+                            [src]="organization.event_images && organization.event_images !== 'data not found' 
+                                    ? 'data:image/jpeg;base64,' + organization.event_images 
+                                    : '../../assets/images/noImageDataImage.jpg'" 
+                            class="img-fluid rounded" 
+                            alt="Organization Image"
+                            style="height: 300px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>              
+                <div class="col-12 col-md-6">
+                    <div class="details">
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Name:</b></span> {{ organization.name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Organizer Name:</b></span> {{ organization.organizer_name }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Start Date:</b></span> {{ organization.start_date }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>End Date:</b></span> {{ organization.end_date }}
+                        </div>
+                   
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Relative Time:</b></span> {{ organization.relative_time }}
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Live stream link:</b></span>
+                            <a href="{{ organization.live_stream_link }}" target="_blank">{{ organization.live_stream_link }}</a>
+                        </div>
+                        <div class="detail mb-3">
+                            <span class="detail-label"><b>Contact Details:</b></span> {{ organization.contact_details }}
+                        </div>
+                    </div>
+                </div>
+            </div>          
+            <hr>
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Location:</b></span> {{ organization.location }}
+            </div>
+            
+            <div class="detail mb-3">
+                <span class="detail-label"><b>Event Details:</b></span> {{ organization.event_details }}
+            </div>
+
+            <span class="detail-label"><b>Brochure:</b></span>
+            <div class="image-container mb-5">
+                <img 
+                    [src]="organization.brochure ? 'data:image/jpeg;base64,' + organization.brochure : '../../assets/images/noImageDataImage.jpg'" 
+                    alt="Brochure Image"
+                    class="img-fluid rounded"
+                    style="height: 300px; width: 50%; object-fit: fill;">
+            </div>
+        </div>
+
+        <div *ngIf="!organization" class="col-12">
+            <p class="text-center">No organization details available.</p>
+        </div>
+
+        <div class="col-12 col-md-3 col-lg-2 d-none d-md-block">
+            <div class="image-container mt-5" style="position: relative;">
+                <img src="../../assets/images/saynotoplastic.webp" 
+                     class="img-fluid" 
+                     style="height: 600px; width: 100%; object-fit: fill;" 
+                     alt="Ad Space" id="banner-image">
+            </div>
+        </div>
+    </div>
+</div>

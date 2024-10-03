@@ -1,0 +1,217 @@
+<div class="container py-4 header-m">
+  <div class="form-card">
+    <!-- <ngx-spinner bdOpacity=0.9 bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise"></ngx-spinner> -->
+
+
+    <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()" class="p-5">
+      <div class="row mt-5">
+        <h3 class="section-header-title text-center">Add an Organization</h3>
+      </div>
+
+      <h3 class="organization-form-heading">Organization Details</h3>
+      <hr />
+
+      <div class="row mb-2">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="organizationName">Organization Name *</label>
+            <input type="text" class="form-control" id="organizationName" formControlName="organization_name" placeholder="Enter the Organization's name" [class.is-invalid]="organizationForm.get('organization_name')?.touched && organizationForm.get('organization_name')?.invalid">          
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="estBy">Established By</label>
+            <input type="text" class="form-control" id="estBy" formControlName="est_by" placeholder="Enter the founder's name" [class.is-invalid]="organizationForm.get('est_by')?.touched && organizationForm.get('est_by')?.invalid">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="chairman">Chairman</label>
+            <input type="text" class="form-control" id="chairman" formControlName="chairman" placeholder="Enter the chairman's name" [class.is-invalid]="organizationForm.get('chairman')?.touched && organizationForm.get('chairman')?.invalid">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- <div class="col-md-12">
+          <div class="form-group">
+            <label for="desc">Organization Description</label>
+            <textarea class="form-control" id="desc" formControlName="desc" placeholder="Describe the organization" rows="4" [class.is-invalid]="organizationForm.get('desc')?.touched && organizationForm.get('desc')?.invalid"></textarea>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="estDate">Established Date</label>
+            <input type="date" class="form-control" id="estDate" formControlName="est_date" [class.is-invalid]="organizationForm.get('est_date')?.touched && organizationForm.get('est_date')?.invalid">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="regId">Registration ID</label>
+            <input type="text" class="form-control" id="regId" formControlName="reg_id" placeholder="Enter the registration ID" [class.is-invalid]="organizationForm.get('reg_id')?.touched && organizationForm.get('reg_id')?.invalid">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="webUrl">Website URL</label>
+            <input type="url" class="form-control" id="webUrl" formControlName="web_url" placeholder="Enter the website URL" [class.is-invalid]="organizationForm.get('web_url')?.touched && organizationForm.get('web_url')?.invalid">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-control" id="category" formControlName="category_id"
+                    (change)="onCategoryChange($event)"
+                    [class.is-invalid]="organizationForm.get('category_id')?.touched && organizationForm.get('category_id')?.invalid">
+              <option value="" disabled selected>Select a category</option>
+              <option *ngFor="let option of combinedCategoryOptions" [value]="option.value">{{ option.label }}</option>
+            </select>
+          </div>         
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="location"> Enter the correct Location</label>         
+            <textarea class="form-control" id="location" formControlName="location" placeholder="Enter the location" rows="4" [class.is-invalid]="organizationForm.get('location')?.touched && organizationForm.get('location')?.invalid"></textarea>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="orgDetail">Organization Details</label>
+            <textarea class="form-control" id="orgDetail" formControlName="org_detail" placeholder="Detailed information about the organization" rows="4" [class.is-invalid]="organizationForm.get('org_detail')?.touched && organizationForm.get('org_detail')?.invalid"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="mission">Mission</label>
+            <textarea class="form-control" id="mission" formControlName="mission" placeholder="Enter the mission of the organization" rows="4" [class.is-invalid]="organizationForm.get('mission')?.touched && organizationForm.get('mission')?.invalid"></textarea>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="organizationMembers">Organization Members</label>
+            <textarea class="form-control" id="organizationMembers" formControlName="organization_members" placeholder="Enter organization members" rows="4" [class.is-invalid]="organizationForm.get('organization_members')?.touched && organizationForm.get('organization_members')?.invalid"></textarea>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="country">continent *</label>
+              <select class="form-control" id="continent" formControlName="continent" [class.is-invalid]="organizationForm.get('continent')?.touched && organizationForm.get('continent')?.invalid">
+                <option *ngFor="let option of ContinentOptions" [value]="option.value">{{ option.label }}</option>
+              </select>             
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="country">Country *</label>
+              <select class="form-control" id="country" formControlName="country" [class.is-invalid]="organizationForm.get('country')?.touched && organizationForm.get('country')?.invalid">
+                <option *ngFor="let option of CountryOptions" [value]="option.value">{{ option.label }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="state">State *</label>
+              <select class="form-control" id="state" formControlName="state" [class.is-invalid]="organizationForm.get('state')?.touched && organizationForm.get('state')?.invalid">
+                <option *ngFor="let option of StateOptions" [value]="option.value">{{ option.label }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="district">District *</label>
+              <select class="form-control" id="district" formControlName="object_id" [class.is-invalid]="organizationForm.get('object_id')?.touched && organizationForm.get('object_id')?.invalid">
+                <option *ngFor="let option of DistrictOptions" [value]="option.value">{{ option.label }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row">
+          <div class="col-md-4 mb-2">
+            <label for="orgImages" class="form-label">Upload Organization Images <span style="color: red;">*</span></label>
+            <nz-upload nzListType="picture-card" [(nzFileList)]="orgImageFileList"
+                      [nzShowButton]="orgImageFileList.length < 1" (nzChange)="handleOrgImageChange($event)"
+                      [nzAccept]="'image/*'"     [class.is-invalid]="organizationForm.get('org_images')?.touched && organizationForm.get('org_images')?.invalid">                    
+              <div>
+                <i nz-icon nzType="plus"></i>
+                Upload image
+              </div>
+            </nz-upload>
+            <div *ngIf="organizationForm.get('org_images')?.touched && organizationForm.get('org_images')?.invalid" class="invalid-feedback">
+              Image is required
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-2">
+            <label for="orgLogo" class="form-label">Upload Organization Logo <span style="color: red;">*</span></label>
+            <nz-upload nzListType="picture-card" [(nzFileList)]="orgLogoFileList"
+                      [nzShowButton]="orgLogoFileList.length < 1" (nzChange)="handleOrgLogoChange($event)"
+                      [nzAccept]="'image/*'"  >
+              <div>
+                <i nz-icon nzType="plus"></i>
+                Upload image
+              </div>
+            </nz-upload>
+            <div *ngIf="organizationForm.get('org_logo')?.touched && organizationForm.get('org_logo')?.invalid" class="invalid-feedback">
+              Image is required
+            </div>
+          </div>
+        
+
+          <!-- <div class="col-md-4 mb-2">
+            <label for="govtIdProof" class="form-label">Upload Government ID Proof <span style="color: red;">*</span></label>
+            <nz-upload nzListType="picture-card" [(nzFileList)]="govtIdProofFileList"
+                      [nzShowButton]="govtIdProofFileList.length < 1" (nzChange)="handleGovtIdProofChange($event)"
+                      [nzAccept]="'image/*'"  >
+              <div>
+                <i nz-icon nzType="plus"></i>
+                Upload image
+              </div>
+            </nz-upload>
+            <div *ngIf="organizationForm.get('govt_id_proof')?.touched && organizationForm.get('govt_id_proof')?.invalid" class="invalid-feedback">
+              Image is required
+            </div>
+          </div> -->
+        </div>
+        
+
+      <!-- <div class="row">
+        <div class="text-center">
+          <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled">Submit</button>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="text-center">
+            <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled || isLoading">
+                Submit
+            </button>
+            <div *ngIf="isLoading" class="loader">
+                <span>Loading...</span>
+            </div>
+        </div>
+    </div>
+    </form>
+  </div>
+</div>

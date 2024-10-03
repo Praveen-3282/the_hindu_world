@@ -1,0 +1,32 @@
+label {
+    font-weight: bold;
+  }
+.row{
+  margin-bottom: 10px;
+}
+
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Make sure it's above other content */
+  background: rgba(255, 255, 255, 0.8); /* Optional: to add a background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+
+
+.video-container {
+  border: 2px solid #007bff; 
+  padding: 50px;           
+  border-radius: 10px;    
+  /* background-color: #f9f9f9;  */
+  text-align: center; 
+
+}
+
+

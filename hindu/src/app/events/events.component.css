@@ -1,0 +1,57 @@
+
+  .tab {
+    background-color: #f1f1f1;
+    color: black;
+    border-radius: 8px;
+
+  }
+  
+  .selected-tab {
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+
+  }
+
+  .card-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  *::-webkit-scrollbar {
+    width: 0px !important;
+    background-color: white !important;
+  }
+
+  .responsive-img {
+    width: 15vw;
+    height: auto;
+
+    margin: 10px 0px 10px 0px;
+  }
+  
+  @media (max-width: 767.98px) {
+    .responsive-img {
+      width: 100%; 
+    }
+  }
+
+
+  /* .news-headline {
+    text-align: center;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } */
+
+
+  .news-headline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1; 
+    -webkit-box-orient: vertical;
+  }
