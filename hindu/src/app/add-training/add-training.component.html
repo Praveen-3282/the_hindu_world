@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="category" class="form-label">Category</label>
+                        <label for="category" class="form-label">Category *</label>
                         <select class="form-control" id="category" formControlName="category"
                                 (change)="onCategoryChange($event)"
                                 [class.is-invalid]="organizationForm.get('category')?.touched && organizationForm.get('category')?.invalid">
@@ -46,25 +46,25 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="start_date">Start Date</label>
+                        <label for="start_date">Start Date *</label>
                         <input type="datetime-local" class="form-control" id="start_date" formControlName="start_date" [class.is-invalid]="organizationForm.get('start_date')?.touched && organizationForm.get('start_date')?.invalid">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="end_date">End Date</label>
+                        <label for="end_date">End Date *</label>
                         <input type="datetime-local" class="form-control" id="end_date" formControlName="end_date" [class.is-invalid]="organizationForm.get('end_date')?.touched && organizationForm.get('end_date')?.invalid">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="training_link">Training Link</label>
+                        <label for="training_link">Training Link *</label>
                         <input type="url" class="form-control" id="training_link" formControlName="training_link" placeholder="Provide The Correct Link" [class.is-invalid]="organizationForm.get('training_link')?.touched && organizationForm.get('training_link')?.invalid">
                     </div>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="gender">Training Type</label>
+                    <label for="gender">Training Type *</label>
                     <select class="form-control" id="gender" formControlName="training_type" required>
                         <option value="" disabled selected>Select your Mode</option>
                         <option value="online">ONLINE</option>
@@ -78,7 +78,6 @@
                         <input type="time" class="form-control" id="start_time" formControlName="start_time" [class.is-invalid]="organizationForm.get('start_time')?.touched && organizationForm.get('start_time')?.invalid">
                     </div>
                 </div>
-
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="end_time">End Time</label>
@@ -92,13 +91,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="location">Location</label>
+                        <label for="location">Location *</label>
                         <textarea class="form-control" id="location" formControlName="location" placeholder="Enter the Location" [class.is-invalid]="organizationForm.get('location')?.touched && organizationForm.get('location')?.invalid"></textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="desc">Description</label>
+                        <label for="desc">Description *</label>
                         <textarea class="form-control" id="desc" formControlName="desc" placeholder="Enter the Description" [class.is-invalid]="organizationForm.get('desc')?.touched && organizationForm.get('desc')?.invalid"></textarea>
                     </div>
                 </div>
@@ -142,7 +141,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <label>Upload image *</label>
                   <nz-upload
                     nzListType="picture-card"
@@ -189,6 +188,8 @@
                       <!-- <div class="container"> -->
                    
                           <div class="col-md-4">
+                            <label>Upload video *</label>
+
                             <div class="form-group video-container">
                               <nz-upload
                                 nzListType="text"
@@ -213,21 +214,24 @@
 
               
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="text-center">
                     <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled">Submit</button>
                 </div>
-            </div>
-            <!-- <div class="row">
-                <div class="text-center">
-                    <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled || isLoading">
-                        Submit
-                    </button>
-                    <div *ngIf="isLoading" class="loader">
-                        <span>Loading...</span>
-                    </div>
-                </div>
             </div> -->
+            <div class="row">
+                <div class="text-center">
+                    <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled || loading">
+                        <ng-container *ngIf="!loading; else loadingTemplate">
+                            Submit
+                        </ng-container>
+                        <ng-template #loadingTemplate>
+                            <div class="spinner-border"></div> Loading...
+                        </ng-template>
+                    </button>
+                </div>
+            </div>
+ 
         </form>
     </div>
 </div>

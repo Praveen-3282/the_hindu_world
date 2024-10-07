@@ -6,7 +6,7 @@
     <div class="row" *ngIf="user">
       <div class="col-12 text-center">
         <img 
-          [src]="user.profile_pic ? 'data:image/jpeg;base64,' + user.profile_pic : '../../assets/images/profile1.webp'"
+          [src]="user.profile_pic ?  user.profile_pic : '../../assets/images/profile1.webp'"
           class="rounded-circle" 
           alt="" 
           style="width: 150px; height: 150px; max-width: 100%;">
@@ -49,7 +49,7 @@
             <a (click)="navigateorganizationDetail(organization._id)">
               <img 
                 [src]="organization.org_logo && organization.org_logo !== 'data not found' 
-                       ? 'data:image/jpeg;base64,' + organization.org_logo 
+                       ?  organization.org_logo 
                        : '../../assets/images/world.png'" 
                 class="img-fluid img-thumbnail mx-2" 
                 style="height: 18vh; width: 100%; max-width: 150px; border-radius: 20px;" 
@@ -79,7 +79,7 @@
             <a (click)="navigateeventDetail(eventdata._id)">
               <img 
                 [src]="eventdata.event_images && eventdata.event_images !== 'data not found' 
-                       ? 'data:image/jpeg;base64,' + eventdata.event_images 
+                       ? eventdata.event_images 
                        : '../../assets/images/world.png'" 
                 class="img-fluid img-thumbnail mx-2" 
                 style="height: 18vh; width: 100%; max-width: 150px; border-radius: 20px;" 
@@ -109,7 +109,7 @@
             <a (click)="navigatetrainigDetail(organization._id)">
               <img 
                 [src]="organization.image && organization.image !== 'data not found' 
-                       ? 'data:image/jpeg;base64,' + organization.image 
+                       ?  organization.image 
                        : '../../assets/images/world.png'" 
                 class="img-fluid img-thumbnail mx-2" 
                 style="height: 18vh; width: 100%; max-width: 150px; border-radius: 20px;" 

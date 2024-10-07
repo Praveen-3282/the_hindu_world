@@ -241,7 +241,6 @@ private trainingservice:TrainingService,
   }
 
 
-  isLoading: boolean = false;
 
   // onSubmit() {
   //   if (this.organizationForm.valid) {
@@ -290,9 +289,14 @@ private trainingservice:TrainingService,
   //     console.log('Form is invalid.');
   //   }
   // }
+
+  loading: boolean = false;
+
   
   onSubmit() {
     if (this.organizationForm.valid) {
+      this.loading = true; // Start loader
+
       const formValue = { ...this.organizationForm.value };
       
       const selectedCategory = formValue.category;
@@ -310,13 +314,14 @@ private trainingservice:TrainingService,
       console.log('Form value before submitting:', formValue);
   
       // Show loader
-      this.isLoading = true;
   
       this.trainingservice.addtraining(formValue).subscribe(
         (response) => {
           console.log('Training added successfully:', response);
           this.notificationHelper.showSuccessNotification('Add Training Success', '');
           this.resetForm();
+          this.loading = false;
+
         },
         (error) => {
           if (error.status === 400) {
@@ -324,6 +329,8 @@ private trainingservice:TrainingService,
             this.notificationHelper.showErrorNotification(
               'You are not a member. Please update your profile and become a member first'
             );
+            this.loading = false;
+
             this.openMemberDialog();
           } else if (error.status === 403) {
             console.error('Error adding Training:', error);
@@ -335,7 +342,8 @@ private trainingservice:TrainingService,
           }
         },
         () => {
-          this.isLoading = false;
+          this.loading = false;
+
         }
       );
     } else {

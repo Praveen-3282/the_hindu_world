@@ -118,6 +118,7 @@ export class HeaderComponent {
 
   navigateTo(route: string): void {
     const ismember = localStorage.getItem('is_member') === 'true'; 
+    console.log("hsjfdjdkjfkdfjhdhfu",ismember)
   
     if (ismember) {
       this.router.navigate([route]);
@@ -125,4 +126,7 @@ export class HeaderComponent {
       this.userservice.showMemberModal();
     }
   }
+
+
+  
 }

@@ -160,7 +160,7 @@
                     <div class="col-md-4 text-center">
                       <img 
                         [src]="(orginazationsCategorydata && orginazationsCategorydata.image) 
-                               ? 'data:image/jpeg;base64,' + orginazationsCategorydata.image 
+                               ? orginazationsCategorydata.image 
                                : '../../assets/images/noImageDataImage.jpg'"
                         alt="image" 
                         class="responsive-img p-2">
@@ -183,7 +183,7 @@
                             <a (click)="navigateorganizationDetail(organization._id)">
                               <img 
                                 [src]="organization.org_logo && organization.org_logo !== 'data not found' 
-                                       ? 'data:image/jpeg;base64,' + organization.org_logo 
+                                       ?  organization.org_logo 
                                        : '../../assets/images/noImageDataImage.jpg'"
                                 style="height: 20vh; width: 100%; max-width: 200px; border-radius: 10px;" 
                                 class="img-fluid img-thumbnail" 

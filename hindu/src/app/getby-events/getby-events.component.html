@@ -170,7 +170,7 @@
                     <div class="image-container">
                         <img 
                             [src]="organization.event_images && organization.event_images !== 'data not found' 
-                                    ? 'data:image/jpeg;base64,' + organization.event_images 
+                                    ?  organization.event_images 
                                     : '../../assets/images/noImageDataImage.jpg'" 
                             class="img-fluid rounded" 
                             alt="Organization Image"
@@ -217,7 +217,7 @@
             <span class="detail-label"><b>Brochure:</b></span>
             <div class="image-container mb-5">
                 <img 
-                    [src]="organization.brochure ? 'data:image/jpeg;base64,' + organization.brochure : '../../assets/images/noImageDataImage.jpg'" 
+                    [src]="organization.brochure ?  + organization.brochure : '../../assets/images/noImageDataImage.jpg'" 
                     alt="Brochure Image"
                     class="img-fluid rounded"
                     style="height: 300px; width: 50%; object-fit: fill;">

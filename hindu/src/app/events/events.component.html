@@ -87,7 +87,7 @@
         <div class="row no-gutters ">
             <div class="col-md-4 text-center">
               <img [src]="(eventcategorydata && eventcategorydata && eventcategorydata.image) ? 
-                     'data:image/jpeg;base64,' + eventcategorydata.image : 
+                    eventcategorydata.image : 
                      '../../assets/images/noImageDataImage.jpg'" 
                alt="image" 
                class="responsive-img p-2">            
@@ -197,11 +197,11 @@
                 <div *ngFor="let event of UpComingeventdata" class="col-12 col-lg-6 mb-4">
                   <div class="card h-100 d-flex flex-row align-items-center p-2 m-2" (click)="navigateorganizationDetail(event._id)" style="cursor: pointer;">
                     <a class="me-3">
-                      <img [src]="event.event_images ? 'data:image/jpeg;base64,' + event.event_images : '../../assets/images/noImageDataImage.jpg'"
+                      <img [src]="event.event_images ?  event.event_images : '../../assets/images/noImageDataImage.jpg'"
                            alt="image" class="card-img" style="height: 100px; width: 100px; object-fit: cover;">
                     </a>
                     <div>
-                      <h6 class="card-title news-headline mb-2" style="font-size: 20px;">{{ event.name }}</h6>
+                      <h6 class="card-title  mb-2" style="font-size: 20px;">{{ event.name }}</h6>
                       <p class="mb-1" style="font-size: 14px;">Start Date: {{ event.start_date }}</p>
                       <p class="mb-1" style="font-size: 14px;">End Date: {{ event.end_date }}</p>
                     </div>
@@ -228,11 +228,11 @@
                 <div *ngFor="let event of Completedeventdata" class="col-12 col-lg-6 mb-4">
                   <div class="card h-100 d-flex flex-row align-items-center p-2 m-2" (click)="navigateorganizationDetail(event._id)" style="cursor: pointer;">
                     <a class="me-3">
-                      <img [src]="event.event_images ? 'data:image/jpeg;base64,' + event.event_images : '../../assets/images/noImageDataImage.jpg'"
+                      <img [src]="event.event_images ?  event.event_images : '../../assets/images/noImageDataImage.jpg'"
                            alt="image" class="card-img" style="height: 100px; width: 100px; object-fit: cover;">
                     </a>
                     <div>
-                      <h6 class="card-title news-headline mb-2" style="font-size: 20px;">{{ event.name }}</h6>
+                      <h6 class="card-title  mb-2" style="font-size: 20px;">{{ event.name }}</h6>
                       <p class="mb-1" style="font-size: 14px;">Start Date: {{ event.start_date }}</p>
                       <p class="mb-1" style="font-size: 14px;">End Date: {{ event.end_date }}</p>
                     </div>

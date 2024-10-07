@@ -299,11 +299,13 @@ private eventservice:EventService,
   //     this.spinner.hide();
   //   }
   // }
+  loading: boolean = false;
 
 
   onSubmit() {
-    this.spinner.show();
     if (this.organizationForm.valid) {
+      this.loading = true; 
+
       const formValue = { ...this.organizationForm.value };
   
       // Parse the backend date strings directly
@@ -350,9 +352,13 @@ private eventservice:EventService,
           console.log('Event added successfully:', response);
           this.notificationHelper.showSuccessNotification('Add Event Success', '');
           this.resetForm();
+          this.loading = false;
+
         },
         error => {
           console.error('Error adding event:', error);
+          this.loading = false;
+
   
           if (error.status === 400 && error.error.message === "Cannot create event. Membership details are required. Update your profile and become a member.") {
             this.notificationHelper.showErrorNotification('Event not added. Membership details are required.');
@@ -366,7 +372,7 @@ private eventservice:EventService,
     } else {
       this.organizationForm.markAllAsTouched();
       console.log('Form is invalid.');
-      this.spinner.hide();
+      this.loading = false;
     }
   }
   

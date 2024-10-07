@@ -67,13 +67,11 @@ export class AddOrganizationsComponent {
   StateOptions: any[]=[];
   DistrictOptions: any[]=[];
   formDisabled = false;
-
-
-
   combinedCategoryOptions: any[] = [];
   subcategoryToCategoryMap: { [key: string]: string } = {}; 
   subCategoryOptions: any[] = [];
-
+  organization: any; 
+  displayName = 'submission';
   // formGroup:any;
 
   constructor(private fb: FormBuilder,
@@ -238,13 +236,14 @@ export class AddOrganizationsComponent {
     
   }
 
-  isLoading: boolean = false;
-
+  loading: boolean = false;
+  submittedOrganization: any; 
 
   onSubmit() {
-    this.spinner.show();
   
     if (this.organizationForm.valid) {
+      this.loading = true; // Start loader
+
       const formValue = { ...this.organizationForm.value };
       const selectedCategory = formValue.category_id;
       const selectedCategoryOption = this.combinedCategoryOptions.find(option => option.value === selectedCategory);
@@ -261,19 +260,21 @@ export class AddOrganizationsComponent {
           response => {
             console.log('Organization added successfully:', response);
             this.notificationHelper.showSuccessNotification('Add Organization Success', '');
+
             this.resetForm();
-            // const organizationId = response.organizationId; 
-            // this.router.navigate(['/getbyorganization', organizationId]);
-            const organizationId = response.object_id || response.organizationId; 
-          
-            this.router.navigate(["/getbyorganization", organizationId]);
-            this.spinner.hide();
+
+            // this.router.navigate(['organizationdetail'], { state: { data: response } });            
               this.formDisabled = false;
+              this.loading = false;
+              // this.router.navigate(['organization-detail'], { state: { data: response } });
+              // const organizationId = response.object_id || response.organizationId; 
+          
+              // this.router.navigate(["getbyorganization", organizationId]);
 
           },
           error => {
             console.error('Error adding organization:', error);
-            this.spinner.hide();
+            this.loading = false;
   
             if (error.status === 400 && error.error.message === "Cannot create organization. Membership details are required. Update your profile and become a member.") {
               this.notificationHelper.showErrorNotification('Organization not added. Membership details are required.');
@@ -286,7 +287,6 @@ export class AddOrganizationsComponent {
     } else {
       this.organizationForm.markAllAsTouched();
       console.log('Form is invalid.');
-      this.spinner.hide();
     }
   }
   

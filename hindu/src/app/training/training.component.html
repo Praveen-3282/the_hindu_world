@@ -295,7 +295,7 @@
                 <div class="row no-gutters">
                   <div class="col-md-4 text-center">
                     <img [src]="(orginazationCategorydata && orginazationCategorydata && orginazationCategorydata.image) ? 
-                           'data:image/jpeg;base64,' + orginazationCategorydata.image : 
+                            orginazationCategorydata.image : 
                            '../../assets/images/noImageDataImage.jpg'" 
                      alt="image" 
                      class="responsive-img p-2"
@@ -324,7 +324,7 @@
                           <a (click)="navigateorganizationDetail(organization._id)">
                             <img 
                             [src]="organization.image && organization.image !== 'null' 
-                                   ? 'data:image/jpeg;base64,' + organization.image 
+                                   ?  organization.image 
                                    : '../../assets/images/noImageDataImage.jpg'" 
                             style="height: 20vh; width: 100%; max-width: 200px; border-radius: 20px;" 
                             class="img-fluid img-thumbnail " 

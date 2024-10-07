@@ -1,213 +1,3 @@
-<!-- <div class="container p-4"  style="max-width: 600px; margin: 0 auto; max-height: 800px">
-    <form [formGroup]="memberform">
-        <div>
-            <div class="row">
-                <h3 class="text-center">Trainer Registration</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="full_name">Full Name*</label>
-                        <input type="text" class="form-control" formControlName="full_name" placeholder="Enter the name">
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="experience">Experience*</label>
-                        <input type="text" class="form-control" formControlName="experience" placeholder="Enter the father's name">
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="achievements">Achievements*</label>
-                        <input type="text" class="form-control" formControlName="achievements" placeholder="Enter the date of birth">
-
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="dob">Email*</label>
-                        <input type="text" class="form-control" formControlName="email" placeholder="Enter the date of birth">
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="contact_number">Contact Number</label>
-                        <input type="text" class="form-control" formControlName="contact_number" placeholder="Enter the contact number">
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="profile_pic" class="form-label">Profile Picture</label>
-                        <nz-upload 
-                            nzListType="picture-card" 
-                            [(nzFileList)]="profilePicFileList"
-                            [nzShowButton]="profilePicFileList.length < 1" 
-                            (nzChange)="handleFileChange($event, 'profile_pic')"
-                            [nzAccept]="'image/*'"  
-                            class="round-upload">
-                            <div>
-                                <i nz-icon nzType="plus"></i>
-                                Upload image
-                            </div>
-                        </nz-upload>
-                    </div>
-                </div>
-            
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="certificate" class="form-label">Certificate</label>
-                        <nz-upload 
-                            nzListType="picture-card" 
-                            [(nzFileList)]="certificateFileList"
-                            [nzShowButton]="certificateFileList.length < 1" 
-                            (nzChange)="handleFileChange($event, 'certificate')"
-                            [nzAccept]="'image/*'"  
-                            class="round-upload">
-                            <div>
-                                <i nz-icon nzType="plus"></i>
-                                Upload image
-                            </div>
-                        </nz-upload>
-                    </div>
-                </div>
-            </div>
-            
-          
-           
-            <div class="row mt-3">
-                <div class="col-12 text-center">
-                    <button (click)="onSubmit()">Submit</button>
-                </div>
-            </div>
-        </div>
-    </form>
-  </div>
-   -->
-
-
-
-
-
-
-<!-- <div class="container p-4" *ngIf="!isMemberIn;" style="max-width: 600px; margin: 0 auto; max-height: 800px">
-
-    <form [formGroup]="memberform">
-        <div>
-            <div class="row">
-                <h3 class="text-center">Member Registration</h3>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="full_name">Full Name</label>
-                    <input type="text" class="form-control" id="full_name" formControlName="full_name" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="father_name">Father's Name</label>
-                    <input type="text" class="form-control" id="father_name" formControlName="father_name" placeholder="Enter your father's name" required>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="gender">Gender</label>
-                    <select class="form-control" id="gender" formControlName="gender" required>
-                        <option value="" disabled selected>Select your gender</option>
-                        <option value="MALE">Male</option>
-                        <option value="FEMALE">Female</option>
-                        <option value="OTHER">Other</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="contact_number">Contact Number</label>
-                    <input type="tel" class="form-control" id="contact_number" formControlName="contact_number" placeholder="Enter your contact number" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="gender">Training Type</label>
-                    <select class="form-control" id="gender" formControlName="training_type" required>
-                        <option value="" disabled selected>Select your Mode</option>
-                        <option value="online">ONLINE</option>
-                        <option value="offline">OFFLINE</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="certificate" class="form-label">Certificate</label>
-                    <nz-upload 
-                        nzListType="picture-card" 
-                        [(nzFileList)]="certificateFileList"
-                        [nzShowButton]="certificateFileList.length < 1" 
-                        (nzChange)="handleFileChange($event, 'certificate')"
-                        [nzAccept]="'image/*'"  
-                        class="round-upload">
-                        <div>
-                            <i nz-icon nzType="plus"></i>
-                            Upload image
-                        </div>
-                    </nz-upload>
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-12 text-center">
-                    <button (click)="onSubmit()">Submit</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="container p-4" *ngIf="isMemberIn;" style="max-width: 600px; margin: 0 auto; max-height: 800px">
-    <form [formGroup]="ConnectForm">
-        <div>
-            <div class="row">
-                <h3 class="text-center">Member Registration</h3>
-            </div>
-            <div class="row mt-2">
-                <div class="col-md-12">
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="certificate" class="form-label">Certificate</label>
-                            <nz-upload 
-                                nzListType="picture-card" 
-                                [(nzFileList)]="certificateFileList"
-                                [nzShowButton]="certificateFileList.length < 1" 
-                                (nzChange)="handleFileChange($event, 'certificate')"
-                                [nzAccept]="'image/*'"  
-                                class="round-upload">
-                                <div>
-                                    <i nz-icon nzType="plus"></i>
-                                    Upload image
-                                </div>
-                            </nz-upload>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-12 text-center">
-                    <button (click)="onSubmit()">Submit</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div> -->
-
-
 
 <div class="container p-4" *ngIf="!isMemberIn" style="max-width: 600px; margin: 0 auto; max-height: 800px;background-color: #f2f2f2;">
     <form [formGroup]="memberform" >
@@ -265,16 +55,16 @@
                     <div *ngIf="memberform.get('training_type')?.invalid && memberform.get('training_type')?.touched" class="text-danger">
                         Training Type is required.
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="email">Email*</label>
-                        <input id="email" type="email" formControlName="email" class="form-control" placeholder="Enter your email" />
-                        <div *ngIf="memberform.controls['email'].invalid && memberform.controls['email'].touched" class="text-danger">
-                          A valid Email is required.
-                        </div>
-                      </div>
+                   
                 </div>
 
-
+                <div class="form-group col-md-6">
+                    <label for="email">Email*</label>
+                    <input id="email" type="email" formControlName="email" class="form-control" placeholder="Enter your email" />
+                    <div *ngIf="memberform.controls['email'].invalid && memberform.controls['email'].touched" class="text-danger">
+                      A valid Email is required.
+                    </div>
+                  </div>
 
 
             </div>
@@ -308,7 +98,6 @@
         </div>
     </form>
 </div>
-
 <div class="container p-4" *ngIf="isMemberIn" style="max-width: 600px; margin: 0 auto; max-height: 800px; background-color: #f2f2f2;">
     <form [formGroup]="connectForm" (ngSubmit)="onSubmit()">
         <div>

@@ -97,7 +97,7 @@
             <div class="row align-items-center mb-5">
                 <div class="col-4 text-end">
                     <img 
-                    [src]="organization.org_logo && organization.org_logo !== 'data not found' ? 'data:image/jpeg;base64,' + organization.org_logo : '../../assets/images/noImageDataImage.jpg'" 
+                    [src]="organization.org_logo && organization.org_logo !== 'data not found' ?  organization.org_logo : '../../assets/images/noImageDataImage.jpg'" 
                     class="img-fluid rounded-circle" 
                     style="width: 100px; height: 100px; object-fit: fill;" alt="Organization Logo">
                 </div>
@@ -110,7 +110,7 @@
                 <div class="col-12 col-md-6 d-flex justify-content-center align-items-start mb-4 mb-md-0">
                     <div class="image-container">
                         <img 
-                            [src]="organization.org_images && organization.org_images !== 'data not found' ? 'data:image/jpeg;base64,' + organization.org_images : '../../assets/images/noImageDataImage.jpg'" 
+                            [src]="organization.org_images && organization.org_images !== 'data not found' ?  organization.org_images : '../../assets/images/noImageDataImage.jpg'" 
                             class="img-fluid rounded" 
                             style="height: auto; max-height: 300px; object-fit: cover;" alt="Organization Image">
                     </div>

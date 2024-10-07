@@ -39,7 +39,6 @@ export class AuthenticationService {
 
     this.router.navigate(['home'])
     localStorage.removeItem('isMemberIn');
-    localStorage.removeItem('isPujariIn');
   }
 
   showLoginModal(): void {

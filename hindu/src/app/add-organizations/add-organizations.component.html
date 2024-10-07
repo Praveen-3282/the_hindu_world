@@ -1,6 +1,5 @@
 <div class="container py-4 header-m">
   <div class="form-card">
-    <!-- <ngx-spinner bdOpacity=0.9 bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise"></ngx-spinner> -->
 
 
     <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()" class="p-5">
@@ -21,53 +20,48 @@
 
         <div class="col-md-4">
           <div class="form-group">
-            <label for="estBy">Established By</label>
+            <label for="estBy">Established By *</label>
             <input type="text" class="form-control" id="estBy" formControlName="est_by" placeholder="Enter the founder's name" [class.is-invalid]="organizationForm.get('est_by')?.touched && organizationForm.get('est_by')?.invalid">
           </div>
         </div>
 
         <div class="col-md-4">
           <div class="form-group">
-            <label for="chairman">Chairman</label>
+            <label for="chairman">Chairman *</label>
             <input type="text" class="form-control" id="chairman" formControlName="chairman" placeholder="Enter the chairman's name" [class.is-invalid]="organizationForm.get('chairman')?.touched && organizationForm.get('chairman')?.invalid">
           </div>
         </div>
       </div>
 
       <div class="row">
-        <!-- <div class="col-md-12">
-          <div class="form-group">
-            <label for="desc">Organization Description</label>
-            <textarea class="form-control" id="desc" formControlName="desc" placeholder="Describe the organization" rows="4" [class.is-invalid]="organizationForm.get('desc')?.touched && organizationForm.get('desc')?.invalid"></textarea>
-          </div>
-        </div> -->
+
       </div>
 
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
-            <label for="estDate">Established Date</label>
+            <label for="estDate">Established Date *</label>
             <input type="date" class="form-control" id="estDate" formControlName="est_date" [class.is-invalid]="organizationForm.get('est_date')?.touched && organizationForm.get('est_date')?.invalid">
           </div>
         </div>
 
         <div class="col-md-3">
           <div class="form-group">
-            <label for="regId">Registration ID</label>
+            <label for="regId">Registration ID *</label>
             <input type="text" class="form-control" id="regId" formControlName="reg_id" placeholder="Enter the registration ID" [class.is-invalid]="organizationForm.get('reg_id')?.touched && organizationForm.get('reg_id')?.invalid">
           </div>
         </div>
 
         <div class="col-md-3">
           <div class="form-group">
-            <label for="webUrl">Website URL</label>
+            <label for="webUrl">Website URL *</label>
             <input type="url" class="form-control" id="webUrl" formControlName="web_url" placeholder="Enter the website URL" [class.is-invalid]="organizationForm.get('web_url')?.touched && organizationForm.get('web_url')?.invalid">
           </div>
         </div>
 
         <div class="col-md-3">
           <div class="form-group">
-            <label for="category" class="form-label">Category</label>
+            <label for="category" class="form-label">Category *</label>
             <select class="form-control" id="category" formControlName="category_id"
                     (change)="onCategoryChange($event)"
                     [class.is-invalid]="organizationForm.get('category_id')?.touched && organizationForm.get('category_id')?.invalid">
@@ -81,14 +75,14 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="location"> Enter the correct Location</label>         
+            <label for="location"> Enter the correct Location *</label>         
             <textarea class="form-control" id="location" formControlName="location" placeholder="Enter the location" rows="4" [class.is-invalid]="organizationForm.get('location')?.touched && organizationForm.get('location')?.invalid"></textarea>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="orgDetail">Organization Details</label>
+            <label for="orgDetail">Organization Details *</label>
             <textarea class="form-control" id="orgDetail" formControlName="org_detail" placeholder="Detailed information about the organization" rows="4" [class.is-invalid]="organizationForm.get('org_detail')?.touched && organizationForm.get('org_detail')?.invalid"></textarea>
           </div>
         </div>
@@ -97,14 +91,14 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="mission">Mission</label>
+            <label for="mission">Mission *</label>
             <textarea class="form-control" id="mission" formControlName="mission" placeholder="Enter the mission of the organization" rows="4" [class.is-invalid]="organizationForm.get('mission')?.touched && organizationForm.get('mission')?.invalid"></textarea>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="organizationMembers">Organization Members</label>
+            <label for="organizationMembers">Organization Members *</label>
             <textarea class="form-control" id="organizationMembers" formControlName="organization_members" placeholder="Enter organization members" rows="4" [class.is-invalid]="organizationForm.get('organization_members')?.touched && organizationForm.get('organization_members')?.invalid"></textarea>
           </div>
         </div>
@@ -178,22 +172,7 @@
               Image is required
             </div>
           </div>
-        
 
-          <!-- <div class="col-md-4 mb-2">
-            <label for="govtIdProof" class="form-label">Upload Government ID Proof <span style="color: red;">*</span></label>
-            <nz-upload nzListType="picture-card" [(nzFileList)]="govtIdProofFileList"
-                      [nzShowButton]="govtIdProofFileList.length < 1" (nzChange)="handleGovtIdProofChange($event)"
-                      [nzAccept]="'image/*'"  >
-              <div>
-                <i nz-icon nzType="plus"></i>
-                Upload image
-              </div>
-            </nz-upload>
-            <div *ngIf="organizationForm.get('govt_id_proof')?.touched && organizationForm.get('govt_id_proof')?.invalid" class="invalid-feedback">
-              Image is required
-            </div>
-          </div> -->
         </div>
         
 
@@ -202,16 +181,40 @@
           <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled">Submit</button>
         </div>
       </div> -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="text-center">
-            <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled || isLoading">
+            <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled">
                 Submit
             </button>
-            <div *ngIf="isLoading" class="loader">
-                <span>Loading...</span>
-            </div>
+     
         </div>
-    </div>
+    </div> -->
+    <div class="row">
+      <div class="text-center">
+          <button type="submit" class="btn" style="background-color: orange;" [disabled]="formDisabled || loading">
+              <ng-container *ngIf="!loading; else loadingTemplate">
+                  Submit
+              </ng-container>
+              <ng-template #loadingTemplate>
+                  <div class="spinner-border"></div> Loading...
+              </ng-template>
+          </button>
+      </div>
+  </div>
+  
     </form>
+
+
+
+
+
+
+
+
+
+
+    
   </div>
 </div>
+
+

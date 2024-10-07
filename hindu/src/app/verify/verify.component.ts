@@ -70,6 +70,11 @@ export class VerifyComponent {
           ? localStorage.setItem('username', loginRresponsees.username)
           : null;
           loginRresponsees?.is_member
+          ? localStorage.setItem('is_member', loginRresponsees.is_member)
+          : null;
+          loginRresponsees?.profile_pic
+          ? localStorage.setItem('profile_pic', loginRresponsees.profile_pic)
+          : null;
 
           console.log("swdefg",loginRresponsees)
           if (loginRresponsees.is_member === true) {

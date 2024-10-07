@@ -16,6 +16,7 @@ import { GetbyEventsComponent } from './getby-events/getby-events.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { LoggedinguardGuard } from './guards/login.guard';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { OrganizationdetailComponent } from './organizationdetail/organizationdetail.component';
 
 
 export const routes: Routes = [
@@ -35,6 +36,7 @@ export const routes: Routes = [
     {path:'addevent',component:AddEventComponent,canActivate: [LoggedinguardGuard], },
     {path:'addorganizations',component:AddOrganizationsComponent,canActivate: [LoggedinguardGuard], },
     {path:'About-us',component:AboutUsComponent},
+    {path:'organization-detail',component:OrganizationdetailComponent},
 
     // ,canActivate: [LoggedinguardGuard],
 ];

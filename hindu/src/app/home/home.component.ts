@@ -86,7 +86,13 @@ export class HomeComponent {
   
   
   openmemberDialog(): void {
-    console.log('sssssssssss');
+    const isMember = localStorage.getItem('is_member');
+  
+    if (isMember === 'true') {
+      console.log('Profile already completed, no need to show the dialog.');
+      return; 
+    }
+  
     const dialogRef = this.dialog.open(MemberProfileComponent, {
       data: { displayName: 'signup' },
       autoFocus: false,
@@ -94,8 +100,10 @@ export class HomeComponent {
     });
   
     dialogRef.afterClosed().subscribe(() => {
+      console.log('Dialog was closed');
     });
   }
+  
 
 
   navigateToOrganizations(){

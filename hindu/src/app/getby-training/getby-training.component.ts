@@ -40,7 +40,7 @@ export class GetbyTrainingComponent {
 
   getVideoUrl(): string {
     if (this.organization && this.organization.video) {
-      return `data:video/mp4;base64,${this.organization.video}`;
+      return `${this.organization.video}`;
     }
     return '';
   }
